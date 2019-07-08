@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="SystemAliases">
+	
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="systemAliasesSerarchVO" type="egovframework.example.sample.service.SystemAliasesDefaultVO"/>
+	
+	<resultMap id="systemAliases" class="egovframework.example.sample.service.SystemAliasesVO">
+		<result property="objectType" column="OBJECT_TYPE" columnIndex="1"/>
+		<result property="objectCat" column="OBJECT_CAT" columnIndex="2"/>
+		<result property="objectSchem" column="OBJECT_SCHEM" columnIndex="3"/>
+		<result property="objectName" column="OBJECT_NAME" columnIndex="4"/>
+		<result property="aliasCat" column="ALIAS_CAT" columnIndex="5"/>
+		<result property="aliasSchem" column="ALIAS_SCHEM" columnIndex="6"/>
+		<result property="alias" column="ALIAS" columnIndex="7"/>
+	</resultMap>
+	
+	<insert id="systemAliasesDAO.insertSystemAliases_S">
+		<![CDATA[
+			INSERT INTO SYSTEM_ALIASES 
+				( OBJECT_TYPE
+				  , OBJECT_CAT
+				  , OBJECT_SCHEM
+				  , OBJECT_NAME
+				  , ALIAS_CAT
+				  , ALIAS_SCHEM
+				  , ALIAS )
+			VALUES ( #objectType#
+				  , #objectCat#
+				  , #objectSchem#
+				  , #objectName#
+				  , #aliasCat#
+				  , #aliasSchem#
+				  , #alias# )
+		]]>
+	</insert>
+	
+	<update id="systemAliasesDAO.updateSystemAliases_S">
+		<![CDATA[
+			UPDATE SYSTEM_ALIASES
+			SET OBJECT_TYPE=#objectType#
+				, OBJECT_CAT=#objectCat#
+				, OBJECT_SCHEM=#objectSchem#
+				, OBJECT_NAME=#objectName#
+				, ALIAS_CAT=#aliasCat#
+				, ALIAS_SCHEM=#aliasSchem#
+				, ALIAS=#alias#
+			]]>
+	</update>
+	
+	<delete id="systemAliasesDAO.deleteSystemAliases_S">
+		<![CDATA[
+			DELETE FROM SYSTEM_ALIASES 
+			]]>
+	</delete>
+	
+	<select id="systemAliasesDAO.selectSystemAliases_S" resultMap="systemAliases">
+		<![CDATA[
+			SELECT
+				OBJECT_TYPE
+				, OBJECT_CAT
+				, OBJECT_SCHEM
+				, OBJECT_NAME
+				, ALIAS_CAT
+				, ALIAS_SCHEM
+				, ALIAS
+			FROM SYSTEM_ALIASES
+			]]>
+	</select>
+	
+	<select id="systemAliasesDAO.selectSystemAliasesList_D" parameterClass="systemAliasesSerarchVO" resultClass="egovMap">
+			SELECT
+								OBJECT_TYPE
+								, OBJECT_CAT
+								, OBJECT_SCHEM
+								, OBJECT_NAME
+								, ALIAS_CAT
+								, ALIAS_SCHEM
+								, ALIAS
+					FROM SYSTEM_ALIASES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OBJECT_TYPE = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OBJECT_CAT LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+				ORDER BY 
+				LIMIT #recordCountPerPage# OFFSET #firstIndex#
+	</select>	
+	<select id="systemAliasesDAO.selectSystemAliasesListTotCnt_S" parameterClass="systemAliasesSerarchVO" resultClass="int">
+			SELECT COUNT(*) totcnt
+			FROM SYSTEM_ALIASES
+			WHERE 1=1
+			<isEqual prepend="AND" property="searchCondition" compareValue="0">
+				OBJECT_TYPE = #searchKeyword#
+			</isEqual>
+			<isEqual prepend="AND" property="searchCondition" compareValue="1">
+				OBJECT_CAT LIKE '%' || #searchKeyword# || '%'
+			</isEqual>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="tester">
+  <select id="testQueryId"  parameterClass="hashmap" resultClass="hashmap">
+SELECT DEPT_NAME
+  FROM PUBLIC.DEPT
+  WHERE DEPT_NO = DEPT_NO
+  </select>
+
+ </sqlMap>
