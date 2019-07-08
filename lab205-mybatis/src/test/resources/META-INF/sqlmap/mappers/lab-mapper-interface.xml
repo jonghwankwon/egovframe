@@ -4,5 +4,68 @@
 <mapper namespace="egovframework.lab.dataaccess.service.impl.EmpMapper">
 
 <!-- TODO [Step 3-4] lab-mapper-interface.xml 작성 (Mapper Interface) -->
-
+	<resultMap type="empVO" id="empResult">
+	    <id property="empNo" column="EMP_NO"/>
+	    <result property="empName" column="EMP_NAME"/>
+	    <result property="job" column="JOB"/>
+	    <result property="mgr" column="MGR"/>
+	    <result property="hireData" column="HIRE_DATE"/>
+	    <result property="sal" column="SAL"/>
+	    <result property="comm" column="COMM"/>
+	    <result property="deptNo" column="DEPT_NO"/>
+	</resultMap>
+	
+	<!-- Insert SQL 작성 -->
+	<insert id="insertEmp" parameterType="empVO">
+	    <![CDATA[insert into EMP (EMP_NO, EMP_NAME, JOB, MGR, HIRE_DATE, SAL, COMM, DEPT_NO)
+	    values(#{empNo}, #{empName}, #{job}, #{mgr}, #{hireDate}, #{sal}, #{comm}, #{deptNo})
+	    ]]>
+	</insert>
+	
+	<!-- Update SQL 작성 -->
+	<update id="updateEmp" parameterType="empVO">
+		<![CDATA[
+		update EMP
+		set EMP_NAME = #{empName},
+		JOB = #{job},
+		MGR = #{mgr},
+		HIRE_DATE = #{hireDate},
+		SAL = #{sal},
+		COMM = #{comm},
+		DEPT_NO = #{deptNo}
+		where EMP_NO = #{empNo}
+		]]>
+	</update>
+	
+	<!-- Delete SQL 작성 -->
+	<delete id="deleteEmp" parameterType="empVO">
+		<![CDATA[
+		delete from EMP
+		where EMP_NO = #{empNo}
+		]]>
+	</delete>
+	
+	<!-- Select SQL 작성 -->
+	<select id="selectEmp" parameterType="empNo" resultMap="empResult">
+	    <![CDATA[
+	    select EMP_NO, EMP_NAME, JOB, MGR, HIRE_DATE, SAL, COMM, DEPT_NO
+	    from EMP
+	    where EMP_NO = #{empNo}
+	    ]]>
+	</select>
+	
+	<!-- SelectList SQL 작성 -->
+	<select id="selectEmpList" parameterType="empVO" resultMap="empResult">
+	    <![CDATA[Select EMP_NO, EMP_NAME, JOB, MGR, HIRE_DATE, SAL, COMM, DEPT_NO
+	    form EMP
+	    where 1 = 1
+	    ]]>
+	<if test="empNo != null">
+	    AND EMP_NO = #{empNo}
+	</if>
+	<if test="empName != null">
+		AND EMP_NAME LIKE '%' || #{empName} || '%'	    
+	</if>
+	</select>
+	
 </mapper>
