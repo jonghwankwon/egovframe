@@ -14,9 +14,9 @@
 		<step id="fixedLengthToJdbcStep" parent="eGovBaseStep">
 			<!-- 
 			<tasklet>
-					<chunk reader=""
-					processor="" 
-					writer=""
+					<chunk reader="fileItemReader"
+					processor="processor" 
+					writer="compositeWriter"
 					commit-interval="2" />
 			</tasklet>
 			--> 

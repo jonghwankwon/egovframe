@@ -25,6 +25,7 @@ public class EgovSchedulerJobRunner {
 	 * Scheduler를 이용하여 Batch Job을 실행
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 
 		List<String> jobPaths = new ArrayList<String>();
