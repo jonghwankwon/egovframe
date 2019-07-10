@@ -17,5 +17,9 @@ public class HelloWorldController {
      * http://localhost:8080/lab301-mvc/hello.do 로 요청이 들어오는 경우 실행되는 메소드를 만들어 보자.
      * 반환은 String 이고 getViewNanme 메소드를 이용한다.
      */
+    @RequestMapping(value = "/hello.do")
+    public String helloworld(){
+    	return getViewName();
+    }
 
 }

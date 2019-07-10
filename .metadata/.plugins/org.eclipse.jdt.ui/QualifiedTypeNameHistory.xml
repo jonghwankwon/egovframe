@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="egovframework.lab.dataaccess.service.EmpVO"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.test.context.transaction.TransactionConfiguration"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>
