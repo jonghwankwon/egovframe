@@ -1,7 +1,5 @@
 package egovframework.lab.ajax.web;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +33,10 @@ public class AjaxSimpleController {
 	}
 
 	//TODO [Step 2-1-1] simpleAjax 메소드 완성하기
-
+/*	@RequestMapping(value = "/autocomplete.do")
+	public ModelAndView simpleAjax(@RequestParam("keyword") String keyword) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+*/		
+	}
 
 }

@@ -9,3 +9,23 @@
 [2019.07.01 09:42:31] Installed component:	egovframework.com.sts.bst	게시물통계
 [2019.07.01 09:42:31] Installed component:	egovframework.com.sts.ust	사용자통계
 [2019.07.01 09:42:31] Installed component:	egovframework.com.sym.cal	일반달력
+[2019.07.11 11:26:38] Installed component:	egovframework.com.cmm	공통
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uat.uia	일반로그인
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sec.rnc	실명확인/ 공공i-Pin실명확인
+[2019.07.11 11:26:38] Installed component:	egovframework.com.cop.ems	메일연동 인터페이스
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.ion.ism	약식결재
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.umt	기업/사용자/회원관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.ion.rsn	RSS태그서비스
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.ion.rss	RSS태그관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.ion.nts	보낸쪽지함관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.uss.cmt	출퇴근관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.ccm.zip	우편번호 주소찾기
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.mnu.bmm	바로가기 메뉴관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.mnu.mcm	메뉴생성관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.mnu.mpm	메뉴관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.prm	프로그램관리
+[2019.07.11 11:26:38] Installed component:	egovframework.com.sym.cal	일반달력
+[2019.07.11 11:26:38] Installed component:	egovframework.com.utl.fcc	유틸리티
+[2019.07.11 11:26:38] Installed component:	egovframework.com.utl.wed	웹에디터
+[2019.07.11 11:26:38] Installed component:	egovframework.com.utl.sim	시스템정보확인
+[2019.07.11 11:26:38] Installed component:	egovframework.com.ext.oauth	소셜 인증 기반 로그인 기능

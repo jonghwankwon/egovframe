@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<display-name>Lab301-mvc</display-name>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -21,7 +17,8 @@
 	<!-- Spring  context configuration -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:spring/context-*.xml</param-value>
+		<param-value>classpath*:spring/context-*.xml,classpath*:egovframework/spring/com/**/context-*.xml
+</param-value>
 	</context-param>
 	
 	<listener>
@@ -34,7 +31,8 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/config/springmvc/context-*.xml</param-value>
+			<param-value>/WEB-INF/config/springmvc/context-*.xml,/WEB-INF/config/egovframework/springmvc/egov-com-*.xml
+</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -50,4 +48,7 @@
 	<login-config>
 		<auth-method>BASIC</auth-method>
 	</login-config>
+	<listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
 </web-app>

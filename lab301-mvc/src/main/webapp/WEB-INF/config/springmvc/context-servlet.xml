@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!-- scan component -->
     <context:component-scan base-package="egovframework.lab"/>
@@ -12,12 +7,11 @@
 
     <!-- TODO [Step 1-3-1] context-servlet.xml 에  locale 관련 bean 등록/추가 설정하기 -->
     <!-- setting Locale Locale Interceptor 설정하기  -->   
-    <!--  
-    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
-        p:paramName="lang" />
+     
+    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" id="localeChangeInterceptor" p:paramName="lang"/>
 
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
-
+    <bean class="org.springframework.web.servlet.i18n.SessionLocaleResolver" id="localeResolver"/>
+	<!-- Locale interceptor 설정하기 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
             <list>
@@ -25,22 +19,25 @@
             </list>
         </property>
     </bean>
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
-    --> 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    
     <!-- set view resolver -->
-    <bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-        p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 
     <!-- set message source -->
 	<!-- TODO [Step 1-2-1] context-servlet.xml 설정 변경하기 : messageSource 활성화  -->  
     <!-- messageSource 활성화하는 부분 -->
-    <!--  
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+     
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
         <property name="basenames">
             <list>
                 <value>messages.message-common</value>
-            </list>
+            				<value>classpath:/egovframework/message/com/message-common</value>
+				<value>classpath:/egovframework/rte/fdl/idgnr/messages/idgnr</value>
+				<value>classpath:/egovframework/rte/fdl/property/messages/properties</value>
+				<value>classpath:/egovframework/egovProps/globals</value>
+</list>
         </property>
     </bean>
-    -->
+   
 </beans>
